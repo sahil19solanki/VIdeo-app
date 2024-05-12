@@ -11,7 +11,10 @@ fun VideoDto.toVideo(): Video {
         url = url,
         channel_name = channel_name,
         likes = likes,
-        thumbnail_image = thumbnail_image
+        thumbnail_image = thumbnail_image,
+        profile = profile,
+        uploaded = uploaded,
+        views = views
     )
 }
 
@@ -23,6 +26,9 @@ fun Video.toVideoDto(): VideoDto {
         url = url,
         channel_name = channel_name,
         likes = likes,
-        thumbnail_image = thumbnail_image
+        thumbnail_image = thumbnail_image,
+        profile = profile,
+        uploaded = uploaded,
+        views = views
     )
 }

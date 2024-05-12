@@ -122,7 +122,7 @@ data class DetailScreen(val video:Video) : Screen {
                     Column {
                         Text(text = video.title)
                         Text(
-                            text = "${video.channel_name} - 100 views - 10days",
+                            text = "${video.channel_name} - ${video.views} views - 10days",
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }

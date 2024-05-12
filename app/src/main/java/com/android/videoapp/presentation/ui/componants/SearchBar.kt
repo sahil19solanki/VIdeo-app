@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun SearchBar(readOnly: Boolean = false) {
+fun SearchBar(searchQuery: String, onSearchQueryChange: (String) -> Unit) {
     var textInput by remember {
         mutableStateOf("")
     }
@@ -48,11 +48,8 @@ fun SearchBar(readOnly: Boolean = false) {
             .background(MaterialTheme.colorScheme.background)
             .padding(16.dp)
             .height(48.dp),
-        value = textInput,
-        readOnly = readOnly,
-        onValueChange = {
-            textInput = it
-        },
+        value = searchQuery,
+        onValueChange = { onSearchQueryChange(it) },
         cursorBrush = SolidColor(MaterialTheme.colorScheme.primary),
         maxLines = 1,
         singleLine = true,

@@ -64,7 +64,7 @@ class VideoListScreen(activity: ComponentActivity) : Screen {
                             Icon(imageVector = Icons.Default.Search,
                                 contentDescription = null,
                                 modifier = Modifier
-                                    .clickable { navigator?.push(SearchScreen()) })
+                                    .clickable { navigator?.push(SearchScreen(videoState.videoList,navigator)) })
                         }
                     }
                 })

@@ -69,7 +69,7 @@ fun VideoItem(
             Row {
 
                 AsyncImage(
-                    model = video.thumbnail_image,
+                    model = video.profile,
                     contentDescription = null,
                     modifier = Modifier
                         .size(36.dp)
@@ -82,7 +82,7 @@ fun VideoItem(
                 Column {
                     Text(text =video.title )
                     Text(
-                        text = "${video.channel_name} - 100 views - 10days",
+                        text = "${video.channel_name} - ${video.views} views - ${video.uploaded}",
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }

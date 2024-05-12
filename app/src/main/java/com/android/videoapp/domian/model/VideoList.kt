@@ -12,4 +12,7 @@ data class Video(
     val channel_name: String,
     val likes: Int,
     val thumbnail_image: String,
+    val profile:String,
+    val uploaded:String,
+    val views : String
 )
