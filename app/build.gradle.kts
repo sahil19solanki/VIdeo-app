@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
@@ -70,6 +73,35 @@ dependencies {
     implementation(libs.storage.kt)
     implementation(libs.postgrest.kt)
     implementation(libs.ktor.client.android)
+    implementation( "io.ktor:ktor-client-logging:2.3.11")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+
+    implementation ("com.jakewharton.timber:timber:5.0.1")
+
+
     implementation (libs.moshi.kotlin)
+
+    implementation (libs.coil.compose)
+    implementation ("com.google.dagger:hilt-android:2.51.1")
+    kapt ("com.google.dagger:hilt-compiler:2.51.1")
+    implementation(libs.androidx.navigation.compose)
+    implementation( libs.androidx.lifecycle.viewmodel.compose)
+
+    implementation ("androidx.media3:media3-exoplayer:1.3.1")
+    implementation ("androidx.media3:media3-ui:1.3.1")
+
+    // Extended Icons
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
+    // system UI Controller
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
+
+
+    val voyagerVersion = "1.0.0"
+    // Navigator
+    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
+    // Transitions
+    implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
 
 }

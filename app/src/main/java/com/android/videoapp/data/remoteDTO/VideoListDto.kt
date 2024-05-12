@@ -7,8 +7,8 @@ data class VideoDto(
     val id: Int,
     val title: String,
     val description: String,
-    val url:String,
-    val channel_name:String,
+    val url: String,
+    val channel_name: String,
     val likes: Int,
-    val thumnail_image: String
+    val thumbnail_image: String,
 )
