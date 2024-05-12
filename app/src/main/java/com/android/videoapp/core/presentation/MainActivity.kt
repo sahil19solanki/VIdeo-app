@@ -1,21 +1,15 @@
-package com.android.videoapp.view
+package com.android.videoapp
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
-import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import com.android.videoapp.presentation.VideoViewModel
 import com.android.videoapp.ui.theme.VideoAppTheme
-import com.android.videoapp.viewmodel.VideoViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.jan.supabase.createSupabaseClient
-import io.github.jan.supabase.postgrest.Postgrest
-import io.github.jan.supabase.postgrest.from
-import kotlinx.serialization.Serializable
 
 
 @AndroidEntryPoint
