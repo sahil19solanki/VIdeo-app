@@ -1,6 +1,4 @@
-![Dark1](https://github.com/sahil19solanki/Video-app/assets/105800946/f1edd200-a3a9-422c-b588-b3d2d753eee4)# Video Streaming App
-
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+# Video Streaming App
 
 A video streaming app built with Jetpack Compose using clean architecture, designed to showcase various design patterns and features. The app integrates with a backend hosted on Supabase, which uses PostgreSQL.
 
