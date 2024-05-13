@@ -32,6 +32,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -78,7 +79,7 @@ data class DetailScreen(val video:Video) : Screen {
             AndroidView(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(16f / 9f)
+                    .aspectRatio(16f / 11f)
                     .fillMaxWidth()
                     .height(screenHeight * 0.25f),
                 factory = {
@@ -89,14 +90,13 @@ data class DetailScreen(val video:Video) : Screen {
                 update = {
                     when (lifecycle) {
                         Lifecycle.Event.ON_RESUME -> {
+                            it.onResume()
+                            it.player?.play()
+                        }
+                        Lifecycle.Event.ON_PAUSE -> {
                             it.onPause()
                             it.player?.pause()
                         }
-
-                        Lifecycle.Event.ON_PAUSE -> {
-                            it.onResume()
-                        }
-
                         else -> Unit
                     }
                 }
@@ -140,7 +140,8 @@ data class DetailScreen(val video:Video) : Screen {
             Box(modifier = Modifier.padding(16.dp)){
                 Column {
                     Text(text = "Description")
-                    Text(text = video.description,)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(text = video.description, fontSize = 12.sp,color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f) )
                 }
 
             }
