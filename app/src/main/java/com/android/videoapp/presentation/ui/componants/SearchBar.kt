@@ -68,7 +68,7 @@ fun SearchBar(searchQuery: String, onSearchQueryChange: (String) -> Unit) {
                 Spacer(modifier = Modifier.width(8.dp))
 
                 Box(modifier = Modifier.weight(1f)) {
-                    if (textInput.isEmpty()) {
+                    if (searchQuery.isEmpty()) {
                         Text(
                             text = "Search",
                             color = MaterialTheme.colorScheme.onBackground.copy(0.5f)
@@ -78,7 +78,7 @@ fun SearchBar(searchQuery: String, onSearchQueryChange: (String) -> Unit) {
 
                 }
 
-                if (textInput.isNotEmpty()) {
+                if (searchQuery.isNotEmpty()) {
                     Spacer(modifier = Modifier.width(8.dp))
 
                     Icon(

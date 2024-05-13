@@ -57,13 +57,13 @@ class VideoListScreen(activity: ComponentActivity) : Screen {
                             horizontalArrangement = Arrangement.SpaceBetween,
                             verticalAlignment = Alignment.CenterVertically,
                             modifier = Modifier
-                                .padding(horizontal = 20.dp)
                                 .fillMaxWidth()
                         ) {
                             Text(text = "Video App")
                             Icon(imageVector = Icons.Default.Search,
                                 contentDescription = null,
                                 modifier = Modifier
+                                    .padding(end = 16.dp)
                                     .clickable { navigator?.push(SearchScreen(videoState.videoList,navigator)) })
                         }
                     }
@@ -71,19 +71,20 @@ class VideoListScreen(activity: ComponentActivity) : Screen {
 
             },
         )
-        {
-            val padding = it
-            if(videoState.isLoading){
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ){
-                    CircularProgressIndicator()
-                }
-            } else if(videoState.videoList.isNotEmpty()){
-                LazyColumn {
-                    items(videoState.videoList.size){index ->
-                        VideoItem(video = videoState.videoList[index], navigator = navigator!!)
+        {innerpadding ->
+            Box(modifier = Modifier.padding(innerpadding)){
+                if (videoState.isLoading) {
+                    Box(
+                        modifier = Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                } else if (videoState.videoList.isNotEmpty()) {
+                    LazyColumn {
+                        items(videoState.videoList.size) { index ->
+                            VideoItem(video = videoState.videoList[index], navigator = navigator!!,36.dp)
+                        }
                     }
                 }
             }

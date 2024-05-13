@@ -1,7 +1,9 @@
 package com.android.videoapp.presentation.ui
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -23,6 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.media3.common.MediaItem
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
@@ -109,10 +112,10 @@ data class DetailScreen(val video:Video) : Screen {
                 Row {
 
                     AsyncImage(
-                        model = video.thumbnail_image,
+                        model = video.profile,
                         contentDescription = null,
                         modifier = Modifier
-                            .size(36.dp)
+                            .size(48.dp)
                             .clip(CircleShape),
                         contentScale = ContentScale.Crop
                     )
@@ -122,11 +125,24 @@ data class DetailScreen(val video:Video) : Screen {
                     Column {
                         Text(text = video.title)
                         Text(
-                            text = "${video.channel_name} - ${video.views} views - 10days",
+                            text = "${video.channel_name} - ${video.views} views - ${video.uploaded}",
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
                 }
+            }
+            
+            Spacer(modifier = Modifier
+                .height(1.dp)
+                .background(Color.Gray)
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp))
+            Box(modifier = Modifier.padding(16.dp)){
+                Column {
+                    Text(text = "Description")
+                    Text(text = video.description,)
+                }
+
             }
         }
     }

@@ -39,8 +39,7 @@ class SearchScreen(val videoList: List<Video>, val navigator: Navigator) : Scree
         LazyColumn {
             items(videoList.size) { index ->
                 // Display video item details
-                Text(text = videoList[index].title, style = TextStyle(fontSize = 16.sp), modifier = Modifier.padding(16.dp))
-                VideoItem(video = videoList[index], navigator = navigator)
+                VideoItem(video = videoList[index], navigator = navigator,36.dp)
             }
         }
     }
